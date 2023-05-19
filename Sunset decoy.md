@@ -90,7 +90,7 @@ Nmap done: 1 IP address (1 host up) scanned in 78.27 seconds
 
 **- HTTP port 80 open**
 
-![[Pasted image 20230518225811.png]]
+![Pasted image 20230518225811.png](https://github.com/shyamprasath18/offsec-labs/blob/main/Pasted%20image%2020230518225811.png)
 
 ## Cracking zip
 
@@ -174,7 +174,7 @@ password: server
 
 ```
 
-![[Pasted image 20230518231412.png]]
+![Pasted image 20230518231412.png](https://github.com/shyamprasath18/offsec-labs/blob/main/Pasted%20image%2020230518231412.png)
 
 
 ## Bypassing Rbash
@@ -182,5 +182,5 @@ https://www.hackingarticles.in/multiple-methods-to-bypass-restricted-shell/
 
  - resctricted bash
 
-![[Pasted image 20230518232145.png]]
+![Pasted image 20230518232145.png](https://github.com/shyamprasath18/offsec-labs/blob/main/Pasted%20image%2020230518232145.png)
 
