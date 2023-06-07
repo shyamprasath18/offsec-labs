@@ -124,3 +124,22 @@ ssh -i id_rsa alfredo@<ip> -p 25022
  
 ![image](https://github.com/shyamprasath18/offsec-labs/assets/66670617/c189cb72-229e-4542-8a58-5550da22bc69)
 
+- using find command we can able to find what are the bins has sudo permissions, but the find command need permission.
+
+![image](https://github.com/shyamprasath18/offsec-labs/assets/66670617/5d329a13-53de-4018-97b6-44bfa7629609)
+
+- Here the tar command is used , so its runs on the restapi directory , so creating a tar file to make the `find` bin with sudo perm.
+
+![image](https://github.com/shyamprasath18/offsec-labs/assets/66670617/2b925d2b-6873-4066-99f9-4825985ea580)
+
+- again I forgot to give chmod +x to make the tar as excecutable. :>
+
+![image](https://github.com/shyamprasath18/offsec-labs/assets/66670617/e1583f7e-9df9-4522-bbb4-4ff2bf88d196)
+
+## privilage Escalation
+
+`find . -exec /bin/sh -p \; -quit`
+
+![image](https://github.com/shyamprasath18/offsec-labs/assets/66670617/6d8accea-f672-4ee0-9e3a-73754b259bdb)
+
+
