@@ -26,9 +26,11 @@
 
 ![image](https://github.com/shyamprasath18/offsec-labs/assets/66670617/26aa6e3f-d204-406e-81a5-fa6b7b78e20a)
 
+# SSH into user 
 
+- Found the user flag
 - Searching for anyother root process using `sudo -l`
-- 
+
   ![image](https://github.com/shyamprasath18/offsec-labs/assets/66670617/de6e701d-ba6a-47b8-93b7-9ec3c0546cdd)
 
 
