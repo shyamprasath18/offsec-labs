@@ -70,3 +70,104 @@ DOWNLOADED: 4612 - FOUND: 2
 
 ```
 
+- In assets directory there are some files like js,css,images and fonts etc..
+- mostly checked all the js files, nothing specifically useful.
+
+![image](https://github.com/shyamprasath18/offsec-labs/assets/66670617/f5c46b7e-b202-40dd-9968-63c13eb6ad7e)
+
+- In the fonts , we can see the site called blog, that contains the meta of wordpress.
+
+![image](https://github.com/shyamprasath18/offsec-labs/assets/66670617/500ed0be-3190-445e-a55f-43507104aa36)
+
+- So , on with WPscan
+
+```
+ wpscan --url http://192.168.57.217/assets/fonts/blog
+_______________________________________________________________
+         __          _______   _____
+         \ \        / /  __ \ / ____|
+          \ \  /\  / /| |__) | (___   ___  __ _ _ __ ®
+           \ \/  \/ / |  ___/ \___ \ / __|/ _` | '_ \
+            \  /\  /  | |     ____) | (__| (_| | | | |
+             \/  \/   |_|    |_____/ \___|\__,_|_| |_|
+
+         WordPress Security Scanner by the WPScan Team
+                         Version 3.8.22
+       Sponsored by Automattic - https://automattic.com/
+       @_WPScan_, @ethicalhack3r, @erwan_lr, @firefart
+_______________________________________________________________
+
+[+] URL: http://192.168.57.217/assets/fonts/blog/ [192.168.57.217]
+[+] Started: Wed Jul 12 13:55:35 2023
+
+Interesting Finding(s):
+
+[+] Headers
+ | Interesting Entry: Server: Apache/2.4.18 (Ubuntu)
+ | Found By: Headers (Passive Detection)
+ | Confidence: 100%
+
+[+] XML-RPC seems to be enabled: http://192.168.57.217/assets/fonts/blog/xmlrpc.php
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+ | References:
+ |  - http://codex.wordpress.org/XML-RPC_Pingback_API
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_ghost_scanner/
+ |  - https://www.rapid7.com/db/modules/auxiliary/dos/http/wordpress_xmlrpc_dos/
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_xmlrpc_login/
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_pingback_access/
+
+[+] WordPress readme found: http://192.168.57.217/assets/fonts/blog/readme.html
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+
+[+] Upload directory has listing enabled: http://192.168.57.217/assets/fonts/blog/wp-content/uploads/
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+
+[+] The external WP-Cron seems to be enabled: http://192.168.57.217/assets/fonts/blog/wp-cron.php
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 60%
+ | References:
+ |  - https://www.iplocation.net/defend-wordpress-from-ddos
+ |  - https://github.com/wpscanteam/wpscan/issues/1299
+
+[+] WordPress version 4.9.8 identified (Insecure, released on 2018-08-02).
+ | Found By: Emoji Settings (Passive Detection)
+ |  - http://192.168.57.217/assets/fonts/blog/, Match: 'wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.8'
+ | Confirmed By: Meta Generator (Passive Detection)
+ |  - http://192.168.57.217/assets/fonts/blog/, Match: 'WordPress 4.9.8'
+
+[i] The main theme could not be detected.
+
+[+] Enumerating All Plugins (via Passive Methods)
+
+[i] No plugins Found.
+
+[+] Enumerating Config Backups (via Passive and Aggressive Methods)
+ Checking Config Backups - Time: 00:00:00 <> (100 / 137) 72.99%  ETA: 00:00:0 Checking Config Backups - Time: 00:00:00 <> (110 / 137) 80.29%  ETA: 00:00:0 Checking Config Backups - Time: 00:00:00 <> (116 / 137) 84.67%  ETA: 00:00:0 Checking Config Backups - Time: 00:00:00 <> (126 / 137) 91.97%  ETA: 00:00:0 Checking Config Backups - Time: 00:00:00 <> (131 / 137) 95.62%  ETA: 00:00:0 Checking Config Backups - Time: 00:00:00 <> (137 / 137) 100.00% Time: 00:00:00
+
+[i] No Config Backups Found.
+
+[!] No WPScan API Token given, as a result vulnerability data has not been output.
+[!] You can get a free API token with 25 daily requests by registering at https://wpscan.com/register
+
+[+] Finished: Wed Jul 12 13:55:39 2023
+[+] Requests Done: 164
+[+] Cached Requests: 4
+[+] Data Sent: 46.302 KB
+[+] Data Received: 99.925 KB
+[+] Memory used: 218.996 MB
+[+] Elapsed time: 00:00:04
+
+```
+
+- we can find some wp-content/upload page can be accessed directly.
+- What am I seeing here 😐
+![image](https://github.com/shyamprasath18/offsec-labs/assets/66670617/dbaeeb19-c270-4690-bcd2-f28cb1af4e82)
+
+- Wget the file and reailized its a rabbit hole
+![image](https://github.com/shyamprasath18/offsec-labs/assets/66670617/2861e1ce-970f-4591-9673-4856be90d7e3)
+- Found some other intresting one
+![image](https://github.com/shyamprasath18/offsec-labs/assets/66670617/46645adf-500f-49de-a44f-81071aa08b8e)
+
