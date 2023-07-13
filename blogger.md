@@ -171,3 +171,41 @@ Interesting Finding(s):
 - Found some other intresting one
 ![image](https://github.com/shyamprasath18/offsec-labs/assets/66670617/46645adf-500f-49de-a44f-81071aa08b8e)
 
+- Identified some plugins
+
+```
+[i] Plugin(s) Identified:
+
+[+] akismet
+ | Location: http://192.168.54.217/assets/fonts/blog/wp-content/plugins/akismet/
+ | Last Updated: 2023-06-21T14:59:00.000Z
+ | Readme: http://192.168.54.217/assets/fonts/blog/wp-content/plugins/akismet/readme.txt
+ | [!] The version is out of date, the latest version is 5.2
+ |
+ | Found By: Known Locations (Aggressive Detection)
+ |  - http://192.168.54.217/assets/fonts/blog/wp-content/plugins/akismet/, status: 200
+ |
+ | Version: 4.0.8 (100% confidence)
+ | Found By: Readme - Stable Tag (Aggressive Detection)
+ |  - http://192.168.54.217/assets/fonts/blog/wp-content/plugins/akismet/readme.txt
+ | Confirmed By: Readme - ChangeLog Section (Aggressive Detection)
+ |  - http://192.168.54.217/assets/fonts/blog/wp-content/plugins/akismet/readme.txt
+
+[+] wpdiscuz
+ | Location: http://192.168.54.217/assets/fonts/blog/wp-content/plugins/wpdiscuz/
+ | Last Updated: 2023-06-03T12:37:00.000Z
+ | Readme: http://192.168.54.217/assets/fonts/blog/wp-content/plugins/wpdiscuz/readme.txt
+ | [!] The version is out of date, the latest version is 7.6.1
+ |
+ | Found By: Known Locations (Aggressive Detection)
+ |  - http://192.168.54.217/assets/fonts/blog/wp-content/plugins/wpdiscuz/, status: 200
+ |
+ | Version: 7.0.4 (80% confidence)
+ | Found By: Readme - Stable Tag (Aggressive Detection)
+ |  - http://192.168.54.217/assets/fonts/blog/wp-content/plugins/wpdiscuz/readme.txt
+
+[!] No WPScan API Token given, as a result vulnerability data has not been output.
+[!] You can get a free API token with 25 daily requests by registering at https://wpscan.com/register
+
+```
+
