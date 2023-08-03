@@ -68,6 +68,9 @@ DOWNLOADED: 4612 - FOUND: 7
 
 - No use taking long time to bruteforce used the username - `itsskv`
 
+## SSH login
+
+- Using the cybersploit as password in SSH .
 
 
 
