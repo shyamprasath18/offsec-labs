@@ -209,3 +209,11 @@ Interesting Finding(s):
 
 ```
 
+## Root - Privilage Escalation
+
+- For enabling tty - interactive shell , we have the python3 available in the victim machine.
+`python3 -c 'import pty; pty.spawn("/bin/bash")'`
+
+![image](https://github.com/shyamprasath18/offsec-labs/assets/66670617/8c27806a-58d0-46a8-9656-eaf30ba952c9)
+
+![image](https://github.com/shyamprasath18/offsec-labs/assets/66670617/174df7a3-578b-446b-a97b-4371bd0e0ccf)
