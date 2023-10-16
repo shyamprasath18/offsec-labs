@@ -74,8 +74,8 @@ Nmap done: 1 IP address (1 host up) scanned in 17.33 seconds
     Default admin - http://192.168.240.193/user/login
 ```
 
-#Finding Creds for Mysql
-
+# Finding Creds for Mysql
+- using the metasploit with the 
 - flag1 leads to coonfig file and also checked the flag4 in /etc/passwd it leads to root flag in root directory.
 
 ![image](https://github.com/shyamprasath18/offsec-labs/assets/66670617/6c9d2e75-2985-4858-8691-a3facec85183)
@@ -119,3 +119,12 @@ use drupaldb;
 
 show tables;
 ```
+![image](https://github.com/shyamprasath18/offsec-labs/assets/66670617/ca29fb45-e9cc-45a0-bd8a-972fe5d1f4b1)
+
+# Priv Escalation
+
+![image](https://github.com/shyamprasath18/offsec-labs/assets/66670617/f67a11a3-7984-43e7-8b4a-38d76e698e68)
+
+![image](https://github.com/shyamprasath18/offsec-labs/assets/66670617/22e2411e-81d6-4326-9bc6-1b09b23af472)
+
+![image](https://github.com/shyamprasath18/offsec-labs/assets/66670617/ecb7e23a-c934-4e98-9677-a399745c1816)
